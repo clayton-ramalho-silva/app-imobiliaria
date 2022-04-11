@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Cidade;
+
 class CidadeController extends Controller
 {
     public function cidades()
@@ -12,8 +14,10 @@ class CidadeController extends Controller
 
         $subtitulo = 'Lista de Cidades';
 
-        $cidades = ['Recife', 'Belo Horizonte'];
+        //$cidades = ['Recife', 'Belo Horizonte'];
 
-        return view('admin.cidades.index',compact('subtitulo', 'cidades'));
+        $cidades = Cidade::all();
+
+       return view('admin.cidades.index', compact('subtitulo', 'cidades'));
     }
 }
