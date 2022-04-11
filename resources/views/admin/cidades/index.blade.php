@@ -23,6 +23,13 @@
                 @endforelse
             </tbody>
         </table>
+
+        <div class="fixed-action-btn">
+            <a href="" class="btn-floating btn-large waves-effect waves-light">
+                <i class="large material-icons">add</i>
+            </a>
+        </div>
+
     </section>
 
 @endsection

@@ -20,4 +20,9 @@ class CidadeController extends Controller
 
        return view('admin.cidades.index', compact('subtitulo', 'cidades'));
     }
+
+    public function formAdicionar()
+    {
+        return "Form Adicionar";
+    }
 }
