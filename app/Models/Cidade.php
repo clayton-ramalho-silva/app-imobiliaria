@@ -29,4 +29,12 @@ class Cidade extends Model
     protected $primarykey = 'chave_primaria';
 
     */
+
+
+    /* Timestamps
+
+    Caso não esteja usando o timestamps. Necessario informar no Model
+
+    public $timestamps = false;
+    */
 }
