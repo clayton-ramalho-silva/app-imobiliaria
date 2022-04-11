@@ -14,6 +14,7 @@
         @empty
             <li>Não há cidades cadastradas</li>
         @endforelse
+
     </ul>
 </body>
 </html>
