@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function(){
-    return '<h1>Cidades</h1>';
+    return view('cidades');
 });
 
 Route::get('/sobre', function(){
