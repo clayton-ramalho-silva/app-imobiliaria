@@ -7,11 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Cidades</h1>
+    <h1><?=$subtitulo?></h1>
     <ul>
-        <li>Belo Horizonte</li>
-        <li>Recife</li>
-        <li>Florianopolis</li>
+        <?php foreach($cidades as $cidade):?>
+
+            <li><?=$cidade?></li>
+        <?php endforeach; ?>
     </ul>
 </body>
 </html>
