@@ -12,7 +12,7 @@ class CidadeController extends Controller
 
         $subtitulo = 'Lista de Cidades';
 
-        $cidades = ['Belo Horizonte', 'Recife', 'Florianópolis', 'Manaus'];
+        $cidades = [];
 
         return view('cidades',compact('subtitulo', 'cidades'));
     }
