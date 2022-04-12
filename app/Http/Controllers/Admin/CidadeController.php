@@ -41,6 +41,7 @@ class CidadeController extends Controller
 
         Cidade::create($request->all());
 
+        $request->session()->flash('sucesso',"Cidade $request->nome incluída com sucesso!");
 
         return redirect()->route('admin.cidades.listar');
     }
