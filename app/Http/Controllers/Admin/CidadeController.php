@@ -56,4 +56,14 @@ class CidadeController extends Controller
 
         return redirect()->route('admin.cidades.listar');
     }
+
+
+    public function deletar($id, Request $request)
+    {
+        Cidade::destroy($id);
+
+        $request->session()->flash('sucesso',"Cidade excluida com sucesso!");
+        return redirect()->route('admin.cidades.listar');
+
+    }
 }

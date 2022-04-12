@@ -13,7 +13,22 @@
                 @forelse ($cidades as $cidade)
                     <tr>
                         <td>{{$cidade->nome}}</td>
-                        <td class="right-align">Excluir - Remover</td>
+                        <td class="right-align">
+                            <span>
+                                <i class="material-icons blue-text text-accent-2">edit</i>
+                            </span>
+
+                            <form action="{{ route('admin.cidades.deletar', $cidade->id) }}" method="post" style="display: inline">
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="submit" style="border: 0;background:transparent;">
+                                    <span style="cursor:pointer">
+                                        <i class="material-icons red-text text-accent-3">delete_forever</i>
+                                    </span>
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                 @empty
                     <tr>
