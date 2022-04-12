@@ -27,7 +27,7 @@
             @enderror
         </div>
         <div class="right-align">
-            <a href="{{ url()->previous() }}" class="btn-flat waves-effect">Cancelar</a>
+            <a href="{{ route('admin.cidades.listar') }}" class="btn-flat waves-effect">Cancelar</a>
             <button type="submit" class="btn waves-effect waves-light">
                 Salvar
             </button>
