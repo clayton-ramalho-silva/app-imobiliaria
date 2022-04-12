@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Cidade;
+use App\Http\Requests\CidadeRequest;
 
 class CidadeController extends Controller
 {
@@ -26,8 +27,18 @@ class CidadeController extends Controller
         return view('admin.cidades.form');
     }
 
-    public function adicionar(Request $request)
+    public function adicionar(CidadeRequest $request)
     {
+        // Validação de dados: Antes de Salvar verificar
+        // Para casos em que não possui muitos campos
+        /*$request->validate([
+            'nome' => 'bail|required|min:3|max:100|unique:cidades',
+        ]);*/
+
+        //Sempre procure colocar a logica de validação fora do controlador
+        // criando um Form Request:   php artisan make:request CidadeRequest
+
+
         //Criar uma objeto do modelo Cidade e atribuindo atributos individualmente
         /*
         $cidade = new Cidade();
