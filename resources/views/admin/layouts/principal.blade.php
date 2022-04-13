@@ -22,7 +22,7 @@
                         <a href="#">Imóveis</a>
                     </li>
                     <li>
-                        <a href="#">Cidades</a>
+                        <a href="{{ route('admin.cidades.index') }}">Cidades</a>
                     </li>
                 </ul>
             </div>

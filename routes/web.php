@@ -19,13 +19,19 @@ Route::redirect('/','/admin/cidades');
 
 
 Route::prefix('admin')->name('admin.')->group(function(){
+    //Utilizando um Controller Resource
+    Route::resource('cidades', CidadeController::class)->except(['show']);
+
+
+ // Utilizando um Controller manual
+    /*
     Route::get('/cidades', [CidadeController::class, 'cidades'])->name('cidades.listar');
     Route::get('/cidades/salvar',[CidadeController::class, 'formAdicionar'])->name('cidades.form');
     Route::post('/cidades/salvar',[CidadeController::class, 'adicionar'])->name('cidades.adicionar');
     Route::delete('/cidades/{id}',[CidadeController::class, 'deletar'])->name('cidades.deletar');
     Route::get('/cidades/{id}', [CidadeController::class, 'formEditar'])->name('cidades.formEditar');
     Route::put('/cidades/{id}', [CidadeController::class, 'editar'])->name('cidades.editar');
-
+    */
 
 });
 
