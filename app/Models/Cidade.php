@@ -40,4 +40,10 @@ class Cidade extends Model
 
 
     protected $fillable = ['nome'];
+
+    public function imoveis()
+    {
+        return $this->hasMany(Imovel::class);
+        //possui as mesmas convençãos de chave estrangeira e campos associados
+    }
 }
