@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Finalidade extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nome'
+    ];
 
     public function imoveis()
     {

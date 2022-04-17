@@ -19,6 +19,7 @@ class CreateImovelsTable extends Migration
             $table->integer('terreno');
             $table->integer('banheiros');
             $table->integer('dormitorios');
+            $table->integer('salas');
             $table->integer('garagens');
             $table->text('descricao')->nullable();
             $table->decimal('preco', 12, 2);

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CidadeController;
+use App\Http\Controllers\Admin\ImovelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ Route::redirect('/','/admin/cidades');
 Route::prefix('admin')->name('admin.')->group(function(){
     //Utilizando um Controller Resource
     Route::resource('cidades', CidadeController::class)->except(['show']);
+    Route::resource('imoveis', ImovelController::class);
 
 
  // Utilizando um Controller manual
@@ -34,6 +36,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
     */
 
 });
+
+
+
 
 Route::get('/sobre', function(){
     return '<h1>Sobre</h1>';

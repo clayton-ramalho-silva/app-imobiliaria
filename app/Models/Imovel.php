@@ -11,12 +11,26 @@ class Imovel extends Model
     //definimos manualmente a tabla imoveis por se tratar de diferença no plural
     protected $table = "imoveis";
 
+    protected $fillable = [
+        'titulo',
+        'terreno',
+        'salas',
+        'banheiros',
+        'dormitorios',
+        'garagens',
+        'descricao',
+        'preco',
+        'cidade_id',
+        'tipo_id',
+        'finalidade_id'
+    ];
+
     // Defeninto os relacionamentos entre as tabelas
 
     //Relacionando tabela imoveis para enderecos 1:1
     public function endereco()
     {
-        return $this->hasOne(Enderero::class);
+        return $this->hasOne(Endereco::class);
         //return $this->hasOne(Enderero::class, 'chave_estrangeira'); -> caso a chave estrangeira nao seguir o padrao basta colocar o nome do campo como segundo argumento
         //como o elquente entende a forengId: pera o nome da classe e coloca em minusculo e acressenta o sufixo '_id'//imovel_id
         // 99% das chaves estrangeiras são apontadas para a chave primaria do outro model

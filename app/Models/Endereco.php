@@ -9,6 +9,14 @@ class Endereco extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'rua',
+        'numero',
+        'bairro',
+        'complemento'
+    ];
+
+
     //definindo o inverso do relacionamento como o model imovel
 
     public function imovel()
