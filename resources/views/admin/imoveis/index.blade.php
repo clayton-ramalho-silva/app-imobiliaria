@@ -15,7 +15,7 @@
                 @forelse ($imoveis as $imovel)
                     <tr>
                         <td>{{ $imovel->cidade->nome }}</td>
-                        <td>{{ $imovel->endereco->bairro}}</td>
+                        <td>{{ $imovel->endereco->bairro }}</td>
                         <td>{{ $imovel->titulo}}</td>
                         <td>
                             Editar - Remover

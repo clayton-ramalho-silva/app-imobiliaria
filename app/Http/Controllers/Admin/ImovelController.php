@@ -23,8 +23,26 @@ class ImovelController extends Controller
         //Consulta padrão lazy load
         //$imoveis = Imovel::all();
 
-        //Consulta eager load -> otimizada para busca com tabelas relacionamentos
-        $imoveis = Imovel::with(['cidade', 'endereco'])->get();
+        //Consulta eager load -> otimizada para busca com tabelas relacionamentos, ordenando pelo titulo da tabela Imovel
+
+        $imoveis = Imovel::with(['cidade', 'endereco'])
+        ->orderBy('titulo', 'asc')
+        ->get();
+
+
+        //Consulta eager load - querybuilder -> otimizada para busca com tabelas relacionamentos, ordenando pelo campo de outra tabela relacionada
+
+        /* Desta forma deu problema no bairro
+        $imoveis = Imovel::join('cidades', 'cidades.id', '=', 'imoveis.cidade_id')
+            ->join('enderecos', 'enderecos.imovel_id', '=', 'imoveis.id')
+            ->orderBy('cidades.nome', 'asc')
+            ->orderBy('enderecos.bairro', 'asc')
+            ->orderBy('titulo', 'asc')
+            ->get();
+        */
+
+
+
         return view('admin.imoveis.index', compact('imoveis'));
     }
 
