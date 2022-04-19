@@ -20,7 +20,12 @@ class ImovelController extends Controller
      */
     public function index()
     {
-        return view('admin.imoveis.index');
+        //Consulta padrão lazy load
+        //$imoveis = Imovel::all();
+
+        //Consulta eager load -> otimizada para busca com tabelas relacionamentos
+        $imoveis = Imovel::with(['cidade', 'endereco'])->get();
+        return view('admin.imoveis.index', compact('imoveis'));
     }
 
     /**
