@@ -18,7 +18,17 @@
                         <td>{{ $imovel->endereco->bairro }}</td>
                         <td>{{ $imovel->titulo}}</td>
                         <td>
-                            Editar - Remover
+                            Editar
+                            <form action="{{ route('admin.imoveis.destroy', $imovel->id) }}" method="post" style="display: inline">
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="submit" style="border: 0;background:transparent;">
+                                    <span style="cursor:pointer">
+                                        <i class="material-icons red-text text-accent-3">delete_forever</i>
+                                    </span>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @empty

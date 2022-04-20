@@ -132,8 +132,24 @@ class ImovelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $imovel = Imovel::find($id);
+
+        // por ser duas transaçoes vamos colocar num transation
+        DB::beginTransaction();
+
+        //remover endereço
+        $imovel->endereco->delete();
+
+        //Remover o imovel
+        $imovel->delete();
+
+        DB::Commit();
+
+        $request->session()->flash('sucesso',"Imovel excluído com sucesso!");
+        return redirect()->route('admin.imoveis.index');
+
+
     }
 }
