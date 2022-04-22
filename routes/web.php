@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CidadeController;
+use App\Http\Controllers\Admin\FotoController;
 use App\Http\Controllers\Admin\ImovelController;
 
 /*
@@ -23,6 +24,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
     //Utilizando um Controller Resource
     Route::resource('cidades', CidadeController::class)->except(['show']);
     Route::resource('imoveis', ImovelController::class);
+
+    //nested resource : /imoveis/id/fotos/???
+    Route::resource('imoveis.fotos', FotoController::class)->except(['show','edit','update']);
 
 
  // Utilizando um Controller manual
