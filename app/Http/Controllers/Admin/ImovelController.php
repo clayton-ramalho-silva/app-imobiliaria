@@ -19,32 +19,47 @@ class ImovelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //Consulta padrão lazy load
         //$imoveis = Imovel::all();
-
-        //Consulta eager load -> otimizada para busca com tabelas relacionamentos, ordenando pelo titulo da tabela Imovel
-
-        $imoveis = Imovel::with(['cidade', 'endereco'])
-        ->orderBy('titulo', 'asc')
-        ->get();
 
 
         //Consulta eager load - querybuilder -> otimizada para busca com tabelas relacionamentos, ordenando pelo campo de outra tabela relacionada
 
         /* Desta forma deu problema no bairro
         $imoveis = Imovel::join('cidades', 'cidades.id', '=', 'imoveis.cidade_id')
-            ->join('enderecos', 'enderecos.imovel_id', '=', 'imoveis.id')
-            ->orderBy('cidades.nome', 'asc')
-            ->orderBy('enderecos.bairro', 'asc')
-            ->orderBy('titulo', 'asc')
-            ->get();
+        ->join('enderecos', 'enderecos.imovel_id', '=', 'imoveis.id')
+        ->orderBy('cidades.nome', 'asc')
+        ->orderBy('enderecos.bairro', 'asc')
+        ->orderBy('titulo', 'asc')
+        ->get();
         */
 
+        //Consulta eager load -> otimizada para busca com tabelas relacionamentos, ordenando pelo titulo da tabela Imovel
+        $imoveis = Imovel::with(['cidade', 'endereco'])
+        ->orderBy('titulo', 'asc');
+
+        $cidade_id = $request->cidade_id;
+        $titulo = $request->titulo;
+
+        //Filtro de cidade
+        if($cidade_id){
+            $imoveis->where('cidade_id', $cidade_id);
+        }
+
+        //Filtro de titulo
+        if($titulo){
+            $imoveis->where('titulo', 'like', "%$titulo%");
+        }
+
+        //pegando os dados retornados apartir da execução da query
+        $imoveis = $imoveis->get();
+
+        $cidades = Cidade::orderBy('nome')->get();
 
 
-        return view('admin.imoveis.index', compact('imoveis'));
+        return view('admin.imoveis.index', compact('imoveis', 'cidades','titulo', 'cidade_id'));
     }
 
     /**
