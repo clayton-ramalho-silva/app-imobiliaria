@@ -16,10 +16,7 @@ use App\Http\Controllers\Admin\ImovelController;
 |
 */
 
-
-Route::redirect('/','/admin/cidades');
-
-
+//PARTE ADMINISTRATIVA
 Route::prefix('admin')->name('admin.')->group(function(){
     //Utilizando um Controller Resource
     Route::resource('cidades', CidadeController::class)->except(['show']);
@@ -42,7 +39,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
 });
 
 
+//SITE PRINCIPAL
 
+Route::resource('/', App\Http\Controllers\Site\CidadeController::class)->only('index');
 
 Route::get('/sobre', function(){
     return '<h1>Sobre</h1>';
