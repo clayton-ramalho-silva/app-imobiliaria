@@ -14,3 +14,30 @@
     </div>
 </section>
 @endsection
+
+@section('slider')
+    <section class="slider">
+        <ul class="slides">
+            <li>
+                <img src="https://source.unsplash.com/ZQD9cWknXf8/1900x600"/>
+                <div class="caption center-align">
+                    <h2 style="text-shadow: 2px 2px 8px #1b5e20;">
+                        Encontre os melhores imóveis da cidade!
+                    </h2>
+                </div>
+            </li>
+            <li>
+                <img src="https://source.unsplash.com/B0aCvAVSX8E/1900x600"/>
+                <div class="caption left-align">
+                    <h2 style="text-shadow: 2px 2px 8px #1b5e20;">Melhores imóveis para aluguel!</h2>
+                </div>
+            </li>
+            <li>
+                <img src="https://source.unsplash.com/BQRLk8LCQ5w/1900x600"/>
+                <div class="caption right-align">
+                    <h2 style="text-shadow: 2px 2px 8px #1b5e20;">Melhores imóveis para venda!</h2>
+                </div>
+            </li>
+        </ul>
+    </section>
+@endsection
