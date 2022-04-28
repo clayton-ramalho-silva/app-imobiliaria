@@ -43,6 +43,4 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
 Route::resource('/', App\Http\Controllers\Site\CidadeController::class)->only('index');
 
-Route::get('/sobre', function(){
-    return '<h1>Sobre</h1>';
-});
+Route::resource('cidades.imoveis', App\Http\Controllers\Site\ImovelController::class)->only(['index', 'show']);

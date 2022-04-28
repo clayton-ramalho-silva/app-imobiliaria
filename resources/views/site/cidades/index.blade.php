@@ -4,7 +4,7 @@
 <section class="section lighten-4 center">
     <div style="display: flex; flex-wrap:wrap; justify-content:space-around">
         @foreach ($cidades as $cidade)
-            <a href="#" style="margin-bottom:2%;">
+            <a href="{{ route('cidades.imoveis.index', $cidade->id) }}" style="margin-bottom:2%;">
                 <div class="card-panel" style="width:280px; height:100%; margin-bottom:2%;">
                     <i class="material-icons medium green-text text-lighten-3">room</i>
                     <h4 class="black-text">{{$cidade->nome}}</h4>

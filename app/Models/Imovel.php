@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Imovel extends Model
 {
@@ -66,4 +67,9 @@ class Imovel extends Model
         //caso nome da chave estrangeira da tabela pivot com relação a esse modelo: imovel_id
 
      }
+
+    public function fotos()
+    {
+        return $this->HasMany(Foto::class);
+    }
 }
