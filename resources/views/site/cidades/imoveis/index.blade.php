@@ -21,6 +21,12 @@
                 <p>Finalidade: <strong>{{$imovel->finalidade->nome}}</strong></p>
                 <p>Preço: <strong>R$ {{$imovel->preco}}</strong></p>
             </div>
+
+            <div class="card-action">
+                <a href="{{ route('cidades.imoveis.show', [$cidade->id, $imovel->id]) }}" class="green-text">
+                    Ver detalhes
+                </a>
+            </div>
         </div>
     @empty
         <p>Não existem imóveis disponíveis nessa cidade no momento!</p>
@@ -28,7 +34,7 @@
 </div>
 
 <div class="center">
-    {{$imoveis->links('shared.pagination')}}
+    {{ $imoveis->links('shared.pagination') }}
 </div>
 
 @endsection

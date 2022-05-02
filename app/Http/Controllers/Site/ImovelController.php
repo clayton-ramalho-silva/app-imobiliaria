@@ -22,4 +22,10 @@ class ImovelController extends Controller
 
         return view('site.cidades.imoveis.index', compact('cidade', 'imoveis'));
     }
+
+    public function show($idCidade, $idImovel)
+    {
+        $imovel = Imovel::find($idImovel);
+        return view('site.cidades.imoveis.show', compact('imovel'));
+    }
 }
